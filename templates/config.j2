@@ -1,0 +1,32 @@
+CA="{{ dehydrated_ca_name }}"
+CHALLENGETYPE="{{ dehydrated_challenge_type }}"
+
+BASEDIR="/etc/dehydrated"
+CONFIG_D="${BASEDIR}/config.d"
+DOMAINS_D="${BASEDIR}/domains.d"
+DOMAINS_TXT="${BASEDIR}/domains"
+
+CERTDIR="${BASEDIR}/certs"
+ALPNCERTDIR="${BASEDIR}/alpns"
+ACCOUNTDIR="${BASEDIR}/accounts"
+CHAINCACHE="${BASEDIR}/chains"
+WELLKNOWN="{{ dehydrated_wellknown_path }}"
+LOCKFILE="${BASEDIR}/lock"
+HOOK="${BASEDIR}/hook"
+
+HOOK_CHAIN="{{ 'yes' if dehydrated_hook_chain | default(True) else 'no' }}"
+KEYSIZE="{{ dehydrated_key_size }}"
+RENEW_DAYS="{{ dehydrated_renew_days }}"
+PRIVATE_KEY_RENEW="{{ 'yes' if dehydrated_privatekey_renew | default(True) else 'no' }}"
+PRIVATE_KEY_ROLLOVER="{{ 'yes' if dehydrated_privatekey_rollover else 'no' }}"
+KEY_ALGO="{{ dehydrated_key_algo }}"
+CONTACT_EMAIL="{{ dehydrated_contact_email }}"
+OCSP_MUST_STAPLE="{{ 'yes' if dehydrated_ocsp_must_staple else 'no' }}"
+OCSP_FETCH="{{ 'yes' if dehydrated_ocsp_fetch else 'no' }}"
+OCSP_DAYS={{ dehydrated_ocsp_days }}
+AUTO_CLEANUP="{{ 'yes' if dehydrated_auto_cleanup else 'no' }}"
+API="{{ dehydrated_api_version }}"
+{% if dehydrated_preferred_chain | default(False) %}
+PREFERRED_CHAIN="{{ dehydrated_preferred_chain }}"
+{% endif %}
+IP_VERSION="{{ dehydrated_ip_version }}"

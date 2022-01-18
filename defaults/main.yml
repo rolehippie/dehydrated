@@ -1,0 +1,124 @@
+# Standards: 1.2
+---
+# @var dehydrated_download_version:description: Version to download for installation
+dehydrated_download_version: 0.7.0
+
+# @var dehydrated_download_url:description: URL to the upstream script to download
+dehydrated_download_url: "https://raw.githubusercontent.com/dehydrated-io/dehydrated/v{{ dehydrated_download_version }}/dehydrated"
+
+# @var dehydrated_default_bundles:description: List of default domain bundles to generate certs for
+# @var dehydrated_default_bundles:example: >
+# dehydrated_default_bundles:
+#   - domain: example.com
+#     aliases:
+#       - foo.eaxample.com
+#       - bar.eaxample.com
+#       - baz.eaxample.com
+#   - name: service.example.com
+#     aliases:
+#       - '*.service.examples.com'
+# @end
+dehydrated_default_bundles: []
+
+# @var dehydrated_extra_bundles:description: List of extra domain bundles to generate certs for
+# @var dehydrated_extra_bundles:example: >
+# dehydrated_extra_bundles:
+#   - domain: example.com
+#     aliases:
+#       - foo.eaxample.com
+#       - bar.eaxample.com
+#       - baz.eaxample.com
+#   - name: service.example.com
+#     aliases:
+#       - '*.service.examples.com'
+# @end
+dehydrated_extra_bundles: []
+
+# @var dehydrated_request_certs:description: Request defined certs as part of playbook
+dehydrated_request_certs: False
+
+# @var dehydrated_cron_command:description: Command executed by the cronjob
+dehydrated_cron_command: dehydrated --accept-terms --keep-going --cron
+
+# @var dehydrated_cron_minute:description: Minute value for dehydrated cronjob
+dehydrated_cron_minute: '0'
+
+# @var dehydrated_cron_hour:description: Hour value for dehydrated cronjob
+dehydrated_cron_hour: '7'
+
+# @var dehydrated_cron_day:description: Day value for dehydrated cronjob
+dehydrated_cron_day: '*'
+
+# @var dehydrated_cron_month:description: Month value for dehydrated cronjob
+dehydrated_cron_month: '*'
+
+# @var dehydrated_cron_weekday:description: Weekday value for dehydrated cronjob
+dehydrated_cron_weekday: '*'
+
+# @var dehydrated_ca_name:description: Name or aloas of the acme directory
+dehydrated_ca_name: letsencrypt
+
+# @var dehydrated_challenge_type:description: Challenge type used for validating requests
+dehydrated_challenge_type: dns-01
+
+# @var dehydrated_wellknown_path:description: Path used for http-01 challenges
+dehydrated_wellknown_path: ${BASEDIR}/challenges
+
+# @var dehydrated_hook_chain:description: Chain arguments together into one hook call per cert
+dehydrated_hook_chain: False
+
+# @var dehydrated_key_size:description: Default key size for private keys
+dehydrated_key_size: 4096
+
+# @var dehydrated_renew_days:description: Minimum days before expiration to automatically renew certificate
+dehydrated_renew_days: 30
+
+# @var dehydrated_privatekey_renew:description: Regenerate private keys instead of just signing new certificates on renewal
+dehydrated_privatekey_renew: True
+
+# @var dehydrated_privatekey_rollover:description: Create an extra private key for rollover
+dehydrated_privatekey_rollover: False
+
+# @var dehydrated_key_algo:description: Used key algorithm
+dehydrated_key_algo: secp384r1
+
+# @var dehydrated_contact_email:description: Contact email for cert provider
+# @var dehydrated_contact_email:example: $ hostmaster@example.com
+dehydrated_contact_email:
+
+# @var dehydrated_ocsp_must_staple:description: Option to add csr-flag indicating OCSP stapling to be mandatory
+dehydrated_ocsp_must_staple: False
+
+# @var dehydrated_ocsp_fetch:description: Fetch OCSP responses
+dehydrated_ocsp_fetch: False
+
+# @var dehydrated_ocsp_days:description: Refresh interval for OCSP
+dehydrated_ocsp_days: 5
+
+# @var dehydrated_auto_cleanup:description: Enable automatic cleanup
+dehydrated_auto_cleanup: False
+
+# @var dehydrated_api:description: Used acme api version
+dehydrated_api_version: auto
+
+# @var dehydrated_preferred_chain:description: Option preferred certificate chain
+dehydrated_preferred_chain:
+
+# @var dehydrated_ip_version:description: IP version used by dehydrated commands
+dehydrated_ip_version: 4
+
+# @var dehydrated_dns_provider:description: Enable a dns provider supported by lexicon
+dehydrated_dns_provider:
+
+# @var dehydrated_dns_config:description: Optional configuration for dns providers
+# @var dehydrated_dns_config:example: >
+# dehydrated_dns_config:
+#   auth_client_id: REDACTED
+#   auth_client_secret: REDACTED
+#   auth_tenant_id: REDACTED
+#   auth_subscription_id: REDACTED
+#   resource_group: REDACTED
+# @end
+dehydrated_dns_config: {}
+
+...

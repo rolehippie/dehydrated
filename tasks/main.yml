@@ -1,0 +1,85 @@
+# Standards: 1.2
+---
+- name: Create required dirs
+  loop:
+    - /etc/dehydrated
+    - /etc/dehydrated/config.d
+    - /etc/dehydrated/domains.d
+  file:
+    path: '{{ item }}'
+    owner: root
+    group: root
+    mode: u=rwx,g=rwx,o=
+    state: directory
+  tags:
+    - dehydrated
+
+- name: Install required packages
+  loop:
+    - lexicon
+    - jq
+  package:
+    name: '{{ item }}'
+    state: present
+  tags:
+    - dehydrated
+
+- name: Install upstream script
+  get_url:
+    url: '{{ dehydrated_download_url }}'
+    dest: /usr/bin/dehydrated
+    owner: root
+    group: root
+    mode: u=rx,g=rx,o=
+  tags:
+    - dehydrated
+
+- name: Write general config
+  template:
+    src: config.j2
+    dest: /etc/dehydrated/config
+    owner: root
+    group: root
+    mode: u=rw,g=rw,o=
+  tags:
+    - dehydrated
+
+- name: Write domains config
+  template:
+    src: domains.j2
+    dest: /etc/dehydrated/domains
+    owner: root
+    group: root
+    mode: u=rw,g=rw,o=
+  tags:
+    - dehydrated
+
+- name: Write hook script
+  template:
+    src: hook.j2
+    dest: /etc/dehydrated/hook
+    owner: root
+    group: root
+    mode: u=rwx,g=rwx,o=
+  tags:
+    - dehydrated
+
+- name: Create cron job
+  cron:
+    name: dehydrated
+    minute: '{{ dehydrated_cron_minute }}'
+    hour: '{{ dehydrated_cron_hour }}'
+    day: '{{ dehydrated_cron_day }}'
+    month: '{{ dehydrated_cron_month }}'
+    weekday: '{{ dehydrated_cron_weekday }}'
+    job: "{{ dehydrated_cron_command }}"
+  tags:
+    - dehydrated
+
+- name: Request defined certs
+  when: dehydrated_request_certs | default(False)
+  command: dehydrated --accept-terms --keep-going --cron
+  tags:
+    - dehydrated
+
+...

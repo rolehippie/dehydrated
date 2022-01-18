@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+function deploy_challenge {
+    local DOMAIN="${1}"
+    local TOKEN_FILENAME="${2}"
+    local TOKEN_VALUE="${3}"
+    local TLD=$(echo "${DOMAIN}" | awk -F'.' 'NF>2{$1="";$0=substr($0, 2)}1' OFS='.')
+{% if dehydrated_dns_provider | default(False) %}
+
+    echo " + Writing DNS record for ${DOMAIN} on ${TLD}"
+    lexicon {{ dehydrated_dns_provider }} create ${TLD} TXT \
+{% for key, value in dehydrated_dns_config.items() %}
+        --{{ key | replace('_', '-') }}="{{ value }}" \
+{% endfor %}
+        --name="_acme-challenge.${DOMAIN}." \
+        --content="${TOKEN_VALUE}" \
+        --output QUIET
+
+    sleep 5
+{% endif %}
+
+    :
+}
+
+function clean_challenge {
+    local DOMAIN="${1}"
+    local TOKEN_FILENAME="${2}"
+    local TOKEN_VALUE="${3}"
+    local TLD=$(echo "${DOMAIN}" | awk -F'.' 'NF>2{$1="";$0=substr($0, 2)}1' OFS='.')
+{% if dehydrated_dns_provider | default(False) %}
+
+    echo " + Deleting DNS record for ${DOMAIN} on ${TLD}"
+    lexicon {{ dehydrated_dns_provider }} delete ${TLD} TXT \
+{% for key, value in dehydrated_dns_config.items() %}
+        --{{ key | replace('_', '-') }}="{{ value }}" \
+{% endfor %}
+        --name="_acme-challenge.${DOMAIN}." \
+        --content="${TOKEN_VALUE}" \
+        --output QUIET
+
+{% endif %}
+
+    :
+}
+
+function deploy_cert {
+    local DOMAIN="${1}"
+    local KEYFILE="${2}"
+    local CERTFILE="${3}"
+    local FULLCHAINFILE="${4}"
+    local CHAINFILE="${5}"
+
+    :
+}
+
+function unchanged_cert {
+    local DOMAIN="${1}"
+    local KEYFILE="${2}"
+    local CERTFILE="${3}"
+    local FULLCHAINFILE="${4}"
+    local CHAINFILE="${5}"
+
+    :
+}
+
+function invalid_challenge() {
+    local DOMAIN="${1}"
+    local RESPONSE="${2}"
+
+    :
+}
+
+exit_hook() {
+    :
+}
+
+startup_hook() {
+    :
+}
+
+HANDLER="${1}"
+shift
+
+if [ -n "$(type -t ${HANDLER})" ] && [ "$(type -t ${HANDLER})" = function ]; then
+    $HANDLER "${@}"
+fi
