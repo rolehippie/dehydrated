@@ -83,7 +83,7 @@ dehydrated_privatekey_rollover: False
 dehydrated_key_algo: secp384r1
 
 # @var dehydrated_contact_email:description: Contact email for cert provider
-# @var dehydrated_contact_email:example: $ hostmaster@example.com
+# @var dehydrated_contact_email:example: $ "hostmaster@example.com"
 dehydrated_contact_email:
 
 # @var dehydrated_ocsp_must_staple:description: Option to add csr-flag indicating OCSP stapling to be mandatory
