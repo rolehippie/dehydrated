@@ -1,6 +1,7 @@
 # Standards: 1.2
 ---
 # @var dehydrated_download_version:description: Version to download for installation
+# renovate: datasource=github-releases depName=dehydrated-io/dehydrated
 dehydrated_download_version: 0.7.0
 
 # @var dehydrated_download_url:description: URL to the upstream script to download
