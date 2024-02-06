@@ -4,7 +4,7 @@
     - /etc/dehydrated
     - /etc/dehydrated/config.d
     - /etc/dehydrated/domains.d
-  file:
+  ansible.builtin.file:
     path: '{{ item }}'
     owner: root
     group: root
@@ -17,14 +17,14 @@
   loop:
     - lexicon
     - jq
-  package:
+  ansible.builtin.package:
     name: '{{ item }}'
     state: present
   tags:
     - dehydrated
 
 - name: Install upstream script
-  get_url:
+  ansible.builtin.get_url:
     url: '{{ dehydrated_download_url }}'
     dest: /usr/bin/dehydrated
     owner: root
@@ -34,7 +34,7 @@
     - dehydrated
 
 - name: Write general config
-  template:
+  ansible.builtin.template:
     src: config.j2
     dest: /etc/dehydrated/config
     owner: root
@@ -44,7 +44,7 @@
     - dehydrated
 
 - name: Write domains config
-  template:
+  ansible.builtin.template:
     src: domains.j2
     dest: /etc/dehydrated/domains
     owner: root
@@ -54,7 +54,7 @@
     - dehydrated
 
 - name: Write hook script
-  template:
+  ansible.builtin.template:
     src: hook.j2
     dest: /etc/dehydrated/hook
     owner: root
@@ -64,7 +64,7 @@
     - dehydrated
 
 - name: Create cron job
-  cron:
+  ansible.builtin.cron:
     name: dehydrated
     minute: '{{ dehydrated_cron_minute }}'
     hour: '{{ dehydrated_cron_hour }}'
@@ -77,7 +77,7 @@
 
 - name: Request defined certs
   when: dehydrated_request_certs | default(False)
-  command: dehydrated --accept-terms --keep-going --cron
+  ansible.builtin.command: dehydrated --accept-terms --keep-going --cron
   tags:
     - dehydrated
 
