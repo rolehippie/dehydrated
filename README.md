@@ -252,7 +252,7 @@ Version to download for installation
 #### Default value
 
 ```YAML
-dehydrated_download_version: 0.7.1
+dehydrated_download_version: 0.7.2
 ```
 
 ### dehydrated_extra_bundles
