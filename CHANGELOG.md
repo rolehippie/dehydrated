@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/rolehippie/dehydrated/compare/v2.0.0...v2.0.1) (2025-05-26)
+
+
+### Bugfixes
+
+* **deps:** update dependency dehydrated-io/dehydrated to v0.7.2 ([#20](https://github.com/rolehippie/dehydrated/issues/20)) ([680792b](https://github.com/rolehippie/dehydrated/commit/680792be5994fb7c58e752aa70655c2507669c9b))
+
 ## [2.0.0](https://github.com/rolehippie/dehydrated/compare/v1.0.1...v2.0.0) (2024-02-12)
 
 
