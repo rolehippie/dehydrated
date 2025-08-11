@@ -1,4 +1,4 @@
-# dehydrated
+# workspace
 
 [![Source Code](https://img.shields.io/badge/github-source%20code-blue?logo=github&logoColor=white)](https://github.com/rolehippie/dehydrated)
 [![General Workflow](https://github.com/rolehippie/dehydrated/actions/workflows/general.yml/badge.svg)](https://github.com/rolehippie/dehydrated/actions/workflows/general.yml)
@@ -241,7 +241,8 @@ URL to the upstream script to download
 #### Default value
 
 ```YAML
-dehydrated_download_url: https://raw.githubusercontent.com/dehydrated-io/dehydrated/v{{
+dehydrated_download_url: 
+  https://raw.githubusercontent.com/dehydrated-io/dehydrated/v{{ 
   dehydrated_download_version }}/dehydrated
 ```
 
@@ -412,7 +413,6 @@ dehydrated_wellknown_path: ${BASEDIR}/challenges
 ## Discovered Tags
 
 **_dehydrated_**
-
 
 ## Dependencies
 
