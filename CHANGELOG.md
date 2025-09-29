@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/rolehippie/dehydrated/compare/v2.0.1...v2.1.0) (2025-09-29)
+
+
+### Features
+
+* apply new repo structure and update linting and integrate noble ([18423e6](https://github.com/rolehippie/dehydrated/commit/18423e68ff207ac2564b46a7e4052a3ffb0cd057))
+
 ## [2.0.1](https://github.com/rolehippie/dehydrated/compare/v2.0.0...v2.0.1) (2025-05-26)
 
 
