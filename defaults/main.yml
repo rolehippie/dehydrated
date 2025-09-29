@@ -35,7 +35,7 @@ dehydrated_default_bundles: []
 dehydrated_extra_bundles: []
 
 # @var dehydrated_request_certs:description: Request defined certs as part of playbook
-dehydrated_request_certs: False
+dehydrated_request_certs: false
 
 # @var dehydrated_cron_command:description: Command executed by the cronjob
 dehydrated_cron_command: dehydrated --accept-terms --keep-going --cron
@@ -65,7 +65,7 @@ dehydrated_challenge_type: dns-01
 dehydrated_wellknown_path: ${BASEDIR}/challenges
 
 # @var dehydrated_hook_chain:description: Chain arguments together into one hook call per cert
-dehydrated_hook_chain: False
+dehydrated_hook_chain: false
 
 # @var dehydrated_key_size:description: Default key size for private keys
 dehydrated_key_size: 4096
@@ -74,10 +74,10 @@ dehydrated_key_size: 4096
 dehydrated_renew_days: 30
 
 # @var dehydrated_privatekey_renew:description: Regenerate private keys instead of just signing new certificates on renewal
-dehydrated_privatekey_renew: True
+dehydrated_privatekey_renew: true
 
 # @var dehydrated_privatekey_rollover:description: Create an extra private key for rollover
-dehydrated_privatekey_rollover: False
+dehydrated_privatekey_rollover: false
 
 # @var dehydrated_key_algo:description: Used key algorithm
 dehydrated_key_algo: secp384r1
@@ -87,16 +87,16 @@ dehydrated_key_algo: secp384r1
 dehydrated_contact_email:
 
 # @var dehydrated_ocsp_must_staple:description: Option to add csr-flag indicating OCSP stapling to be mandatory
-dehydrated_ocsp_must_staple: False
+dehydrated_ocsp_must_staple: false
 
 # @var dehydrated_ocsp_fetch:description: Fetch OCSP responses
-dehydrated_ocsp_fetch: False
+dehydrated_ocsp_fetch: false
 
 # @var dehydrated_ocsp_days:description: Refresh interval for OCSP
 dehydrated_ocsp_days: 5
 
 # @var dehydrated_auto_cleanup:description: Enable automatic cleanup
-dehydrated_auto_cleanup: False
+dehydrated_auto_cleanup: false
 
 # @var dehydrated_api:description: Used acme api version
 dehydrated_api_version: auto

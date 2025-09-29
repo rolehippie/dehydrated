@@ -17,6 +17,7 @@
   loop:
     - lexicon
     - jq
+    - cron
   ansible.builtin.package:
     name: '{{ item }}'
     state: present
@@ -76,7 +77,9 @@
     - dehydrated
 
 - name: Request defined certs
-  when: dehydrated_request_certs | default(False)
+  when:
+    - dehydrated_request_certs
+  changed_when: false
   ansible.builtin.command: dehydrated --accept-terms --keep-going --cron
   tags:
     - dehydrated

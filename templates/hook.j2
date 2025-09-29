@@ -6,7 +6,7 @@ function deploy_challenge {
     local TOKEN_FILENAME="${2}"
     local TOKEN_VALUE="${3}"
     local TLD=$(echo "${DOMAIN}" | awk -F'.' 'NF>2{$1="";$0=substr($0, 2)}1' OFS='.')
-{% if dehydrated_dns_provider | default(False) %}
+{% if dehydrated_dns_provider | default(false) %}
 
     echo " + Writing DNS record for ${DOMAIN} on ${TLD}"
     lexicon {{ dehydrated_dns_provider }} create ${TLD} TXT \
@@ -28,7 +28,7 @@ function clean_challenge {
     local TOKEN_FILENAME="${2}"
     local TOKEN_VALUE="${3}"
     local TLD=$(echo "${DOMAIN}" | awk -F'.' 'NF>2{$1="";$0=substr($0, 2)}1' OFS='.')
-{% if dehydrated_dns_provider | default(False) %}
+{% if dehydrated_dns_provider | default(false) %}
 
     echo " + Deleting DNS record for ${DOMAIN} on ${TLD}"
     lexicon {{ dehydrated_dns_provider }} delete ${TLD} TXT \
