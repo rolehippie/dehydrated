@@ -241,9 +241,7 @@ URL to the upstream script to download
 #### Default value
 
 ```YAML
-dehydrated_download_url: 
-  https://raw.githubusercontent.com/dehydrated-io/dehydrated/v{{ 
-  dehydrated_download_version }}/dehydrated
+dehydrated_download_url: https://raw.githubusercontent.com/dehydrated-io/dehydrated/v{{ dehydrated_download_version }}/dehydrated
 ```
 
 ### dehydrated_download_version
