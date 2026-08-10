@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/rolehippie/dehydrated/compare/v2.2.0...v2.3.0) (2026-08-10)
+
+### Dependencies
+
+* **minor:** update dependency pipx:ansible-doctor to v8.4.0 ([#52](https://github.com/rolehippie/dehydrated/issues/52)) ([45e36e3](https://github.com/rolehippie/dehydrated/commit/45e36e3e4ad3aae6c4102ebb3cfa69e4f377106e))
+* **patch:** update dependency python to v3.14.7 ([#50](https://github.com/rolehippie/dehydrated/issues/50)) ([df944e1](https://github.com/rolehippie/dehydrated/commit/df944e176ba6288e7ff3421b8f7c5a7983cc92f1))
+
 ## [2.2.0](https://github.com/rolehippie/dehydrated/compare/v2.1.0...v2.2.0) (2026-07-27)
 
 ## [2.1.0](https://github.com/rolehippie/dehydrated/compare/v2.0.1...v2.1.0) (2025-09-29)
