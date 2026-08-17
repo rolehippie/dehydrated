@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.4.0](https://github.com/rolehippie/dehydrated/compare/v2.3.0...v2.4.0) (2026-08-17)
+
+### Dependencies
+
+* **minor:** update dependency pipx:ansible-lint to v26.8.0 ([#55](https://github.com/rolehippie/dehydrated/issues/55)) ([400c3e2](https://github.com/rolehippie/dehydrated/commit/400c3e21f36da5cbf7d38d240095c25dc333460b))
+* **minor:** update dependency pipx:molecule to v26.8.0 ([#56](https://github.com/rolehippie/dehydrated/issues/56)) ([6463f96](https://github.com/rolehippie/dehydrated/commit/6463f963ff2d52275e0ce1fc714303d977a94b10))
+* **patch:** update dependency pipx:ansible-core to v2.21.3 ([#53](https://github.com/rolehippie/dehydrated/issues/53)) ([0c6ec32](https://github.com/rolehippie/dehydrated/commit/0c6ec32475c0b8e9658dad8a7786c0e770cae970))
+* **patch:** update dependency pre-commit to v4.6.2 ([#54](https://github.com/rolehippie/dehydrated/issues/54)) ([bf53111](https://github.com/rolehippie/dehydrated/commit/bf5311127ed4ed00395c32f62d27676251f7f6db))
+
 ## [2.3.0](https://github.com/rolehippie/dehydrated/compare/v2.2.0...v2.3.0) (2026-08-10)
 
 ### Dependencies
