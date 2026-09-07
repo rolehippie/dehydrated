@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.0](https://github.com/rolehippie/dehydrated/compare/v2.4.1...v2.5.0) (2026-09-07)
+
+### Features
+
+* add separate requirements for molecule run ([8f5ea34](https://github.com/rolehippie/dehydrated/commit/8f5ea34c9f5be26236c357d68df6090c8d38a802))
+
 ## [2.4.1](https://github.com/rolehippie/dehydrated/compare/v2.4.0...v2.4.1) (2026-08-31)
 
 ### Dependencies
